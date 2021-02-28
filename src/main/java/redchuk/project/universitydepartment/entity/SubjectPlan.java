@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import redchuk.project.universitydepartment.entity.enums.SubjectTypes;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -19,9 +16,11 @@ public class SubjectPlan {
     private Long id;
     private int year;
     @ManyToOne
+    @JoinColumn(name = "group_id")
     private Groups group;
     private SubjectTypes type;
     @ManyToOne
+    @JoinColumn(name = "tutor_id")
     private Tutor tutor;
     @OneToOne
     private SubjectSummary subjectSummary;

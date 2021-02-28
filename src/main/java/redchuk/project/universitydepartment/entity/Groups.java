@@ -20,5 +20,6 @@ public class Groups {
     @OneToMany
     private Set<Student> students;
     @ManyToOne
-    private Specialty specialty;
+    @JoinColumn(name = "speciality_id")
+    private Speciality specialty;
 }

@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +14,7 @@ public class SubjectSummary {
     @Id
     private Long id;
     @ManyToOne
+    @JoinColumn(name = "student_id")
     private Student student;
     private int mark;
     @ManyToOne

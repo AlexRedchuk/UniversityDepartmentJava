@@ -11,11 +11,11 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Specialty {
+public class Speciality {
     @Id
     private Long id;
     private String code;
     private String name;
     private int yearOfAdding;
-    private int NumberOfCredits;
+    private int numberOfCredits;
 }
