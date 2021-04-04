@@ -1,25 +1,23 @@
 package redchuk.project.universitydepartment.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Data
+@Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Groups {
+public class UniversityGroup {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    @OneToOne
-    private Student monitor;
-    @OneToMany
-    private Set<Student> students;
     @ManyToOne
     @JoinColumn(name = "speciality_id")
-    private Speciality specialty;
+    private Speciality speciality;
 }

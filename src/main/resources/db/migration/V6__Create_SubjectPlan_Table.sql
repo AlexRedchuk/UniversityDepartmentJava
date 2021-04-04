@@ -3,14 +3,14 @@ create table if not exists subject_plan
 	id bigint not null
 		constraint subject_plan_pkey
 			primary key,
-	type integer,
+	type varchar(255),
 	year integer not null,
 	group_id bigint
-		constraint fktajnwgeq706ptjes27cjhvva9
-			references groups,
-	subject_summary_id bigint
-		constraint fk46cg8xsh0fhc8labt6w740dl5
-			references subject_summary,
+		constraint fknwgq7m7w7o9j642tw3x38nc09
+			references university_group,
+	subject_id bigint
+		constraint fk5qm6e4tx4i7jr80mfbl0lr27x
+			references subject,
 	tutor_id bigint
 		constraint fk711fk6s6x1ofrg7ajlwcauc3t
 			references tutor

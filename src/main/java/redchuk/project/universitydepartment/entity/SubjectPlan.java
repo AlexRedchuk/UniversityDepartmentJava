@@ -1,27 +1,30 @@
 package redchuk.project.universitydepartment.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import redchuk.project.universitydepartment.entity.enums.SubjectTypes;
 
 import javax.persistence.*;
 
 @Data
+@Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class SubjectPlan {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int year;
     @ManyToOne
     @JoinColumn(name = "group_id")
-    private Groups group;
-    private SubjectTypes type;
+    private UniversityGroup group;
+    private String type;
     @ManyToOne
     @JoinColumn(name = "tutor_id")
     private Tutor tutor;
-    @OneToOne
-    private SubjectSummary subjectSummary;
+    @ManyToOne
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
 }

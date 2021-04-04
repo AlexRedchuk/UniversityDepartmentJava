@@ -8,7 +8,7 @@ create table if not exists tutor
 	full_name varchar(255),
 	position varchar(255),
 	salary numeric(19,2),
-	tab_number varchar(255)
+	tab_number integer not null
 );
 
 alter table tutor owner to postgres;

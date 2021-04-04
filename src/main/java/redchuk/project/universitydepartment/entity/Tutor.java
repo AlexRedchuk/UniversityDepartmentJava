@@ -1,25 +1,25 @@
 package redchuk.project.universitydepartment.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
 @Data
+@Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class Tutor {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String tabNumber;
+    private int tabNumber;
     private String fullName;
     private Date dateOfBirth;
     private String degree;

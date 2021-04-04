@@ -3,7 +3,7 @@ create table if not exists subject
 	id bigint not null
 		constraint subject_pkey
 			primary key,
-	code varchar(255),
+	code integer not null,
 	name varchar(255)
 );
 
