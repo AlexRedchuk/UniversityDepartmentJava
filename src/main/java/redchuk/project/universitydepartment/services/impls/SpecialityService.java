@@ -7,7 +7,6 @@ import redchuk.project.universitydepartment.dto.speciality.SpecialityRequestDTO;
 import redchuk.project.universitydepartment.dto.speciality.SpecialityResponseDTO;
 import redchuk.project.universitydepartment.entity.Speciality;
 import redchuk.project.universitydepartment.repositories.SpecialityRepository;
-import redchuk.project.universitydepartment.services.interfaces.ISpecialityService;
 
 import java.util.List;
 import java.util.Set;
@@ -15,24 +14,21 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class SpecialityService implements ISpecialityService {
+public class SpecialityService  {
 
     private final SpecialityRepository repo;
     private final ModelMapper modelMapper;
 
-    @Override
     public Speciality save(SpecialityRequestDTO speciality) {
         var mapped = modelMapper.map(speciality, Speciality.class);
         return repo.save(mapped);
     }
 
-    @Override
     public SpecialityResponseDTO getById(Long id) {
         Speciality speciality = repo.findById(id).orElseThrow();
         return modelMapper.map(speciality, SpecialityResponseDTO.class);
     }
 
-    @Override
     public Set<SpecialityResponseDTO> getAll(int size, int page) {
         List<Speciality> sList = repo.findAll();
         final int listSize = sList.size();
@@ -48,21 +44,18 @@ public class SpecialityService implements ISpecialityService {
                 .collect(Collectors.toSet());
     }
 
-    @Override
     public Speciality edit(SpecialityRequestDTO speciality, Long id) {
         speciality.setId(id);
         var mapped = modelMapper.map(speciality, Speciality.class);
         return repo.save(mapped);
     }
 
-    @Override
-    public SpecialityResponseDTO getSpecialityByCode(int code) {
+    public SpecialityResponseDTO getSpecialityByCode(Integer code) {
         Speciality speciality = repo.getSpecialityByCode(code).orElseThrow();
         return modelMapper.map(speciality, SpecialityResponseDTO.class);
     }
 
 
-    @Override
     public void delete(Long id) {
         repo.deleteById(id);
     }

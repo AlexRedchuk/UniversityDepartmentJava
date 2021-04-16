@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class StudentRequestDTO {
     private Long id;
     private String fullName;
-    private Long groupId;
+    private Long universityGroupId;
 }

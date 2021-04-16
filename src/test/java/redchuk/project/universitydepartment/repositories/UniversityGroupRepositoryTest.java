@@ -9,6 +9,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import redchuk.project.universitydepartment.stubs.GroupStub;
 
+
+import static org.junit.jupiter.api.Assertions.*;
+
+
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 class UniversityGroupRepositoryTest {
@@ -24,24 +28,24 @@ class UniversityGroupRepositoryTest {
     @Test
     void testFindGroupByName() {
 
-        var expectedCategory = GroupStub.getRandomGroup();
-        entityManager.persist(expectedCategory);
+        var expectedObject = GroupStub.getRandomGroup();
+        entityManager.persist(expectedObject);
         entityManager.flush();
-        var actualCategory = repository.getGroupsByName(NAME);
+        var actualObject = repository.getUniversityGroupByName(NAME);
 
-        Assertions.assertThat(actualCategory.get()).isEqualTo(expectedCategory);
+        Assertions.assertThat(actualObject.get()).isEqualTo(expectedObject);
     }
 
     @Test
-    void testFindCategoryByDescriptionNotSuccess() {
-        var expectedCategory = GroupStub.getRandomGroup();
-        entityManager.persist(expectedCategory);
+    void testFindGroupByNameNotSuccess() {
+        var expectedObject = GroupStub.getRandomGroup();
+        entityManager.persist(expectedObject);
         entityManager.flush();
 
-        var actualCategory = repository
-                .getGroupsByName(NAME+"s");
+        var actualObject = repository
+                .getUniversityGroupByName(NAME+"s");
 
-        Assertions.assertThat(actualCategory.isPresent()).isEqualTo(false);
+        Assertions.assertThat(actualObject.isPresent()).isEqualTo(false);
 
     }
 }

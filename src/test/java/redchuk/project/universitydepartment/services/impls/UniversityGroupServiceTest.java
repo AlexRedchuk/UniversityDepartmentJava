@@ -101,7 +101,7 @@ class UniversityGroupServiceTest {
     void testSuccesfulGetByName() {
         var group = GroupStub.getRandomGroup();
 
-        when(repo.getGroupsByName(any())).thenReturn(Optional.of(group));
+        when(repo.getUniversityGroupByName(any())).thenReturn(Optional.of(group));
 
         var res = service.getGroupByName("Random string");
 
@@ -114,7 +114,7 @@ class UniversityGroupServiceTest {
 
     @Test
     void testExceptionThrowGetByName() {
-        when(repo.getGroupsByName(any())).thenReturn(Optional.empty());
+        when(repo.getUniversityGroupByName(any())).thenReturn(Optional.empty());
         var err = assertThrows(NoSuchElementException.class, () -> service.getGroupByName("Vitya"));
         assertEquals(err.getMessage(), "No value present");
     }

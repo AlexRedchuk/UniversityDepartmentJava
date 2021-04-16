@@ -36,7 +36,7 @@ public class SpecialityController {
     }
 
     @GetMapping("/byCode")
-    public SpecialityResponseDTO getByCode(@RequestParam int code) {
+    public SpecialityResponseDTO getByCode(@RequestParam Integer code) {
         return  service.getSpecialityByCode(code);
     }
 

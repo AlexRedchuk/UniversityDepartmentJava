@@ -33,4 +33,17 @@ public final class SubjectSummaryStub {
                 .year(2020)
                 .build();
     }
+
+    public static SubjectSummaryResponseDTO getSubjectSummaryResponseDTO () {
+        return SubjectSummaryResponseDTO
+                .builder()
+                .id(ID)
+                .mark(100)
+                .semester(2)
+                .studentFullName(StudentStub.getRandomStudent().getFullName())
+                .subjectName(SubjectStub.getRandomSubject().getName())
+                .tutorFullName(TutorStub.getRandomTutor().getFullName())
+                .year(2020)
+                .build();
+    }
 }

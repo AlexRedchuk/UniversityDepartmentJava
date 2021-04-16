@@ -4,8 +4,8 @@ create table if not exists student
 		constraint student_pkey
 			primary key,
 	full_name varchar(255),
-	group_id bigint
-		constraint fkrmvq3iao097xuicmamd6l83ja
+	university_group_id bigint
+		constraint fk7bc8li2bhld0bd1cq2krdwms6
 			references university_group
 );
 

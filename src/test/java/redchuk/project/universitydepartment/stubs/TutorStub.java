@@ -34,4 +34,17 @@ public final class TutorStub {
                 .salary(BigDecimal.valueOf(10000))
                 .build();
     }
+
+    public static TutorResponseDTO getTutorResponseDTO() {
+        return TutorResponseDTO
+                .builder()
+                .id(ID)
+                .tabNumber(12342)
+                .fullName("Valeriy Georgiyevich Prohorov")
+                .dateOfBirth(new Date())
+                .degree("Professor")
+                .position("Tutor")
+                .salary(BigDecimal.valueOf(10000))
+                .build();
+    }
 }

@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SpecialityResponseDTO {
     private Long id;
-    private int code;
+    private Integer code;
     private String name;
-    private int yearOfAdding;
-    private int numberOfCredits;
+    private Integer yearOfAdding;
+    private Integer numberOfCredits;
 }

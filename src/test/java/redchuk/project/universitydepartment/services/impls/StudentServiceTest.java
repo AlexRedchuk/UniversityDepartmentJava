@@ -51,7 +51,7 @@ class StudentServiceTest {
         assertAll(
                 () -> assertEquals(res.getId(), student.getId()),
                 () -> assertEquals(res.getFullName(), student.getFullName()),
-                () -> assertEquals(res.getGroupName(), student.getGroup().getName())
+                () -> assertEquals(res.getUniversityGroupName(), student.getUniversityGroup().getName())
         );
     }
 
@@ -105,7 +105,7 @@ class StudentServiceTest {
     void testSucessfulGetStudentsByGroup () {
         var students = List.of(StudentStub.getRandomStudent());
 
-        when(repo.getStudentsByGroup_Id(1L)).thenReturn(students);
+        when(repo.getStudentsByUniversityGroup_Id(1L)).thenReturn(students);
 
         var res = service.getStudentsByGroup_Id(1L);
 

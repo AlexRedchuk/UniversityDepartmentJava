@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface SpecialityRepository extends JpaRepository<Speciality, Long> {
-    Optional<Speciality> getSpecialityByCode(int code);
+    Optional<Speciality> getSpecialityByCode(Integer code);
 }

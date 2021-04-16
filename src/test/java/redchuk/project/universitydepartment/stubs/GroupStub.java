@@ -1,6 +1,7 @@
 package redchuk.project.universitydepartment.stubs;
 
 import redchuk.project.universitydepartment.dto.group.UniversityGroupRequestDTO;
+import redchuk.project.universitydepartment.dto.group.UniversityGroupResponseDTO;
 import redchuk.project.universitydepartment.entity.UniversityGroup;
 
 public final class GroupStub {
@@ -21,6 +22,15 @@ public final class GroupStub {
                 .id(ID)
                 .name("343(3)")
                 .specialityId(SpecialityStub.getRandomSpeciality().getId())
+                .build();
+    }
+
+    public static UniversityGroupResponseDTO getGroupResponseDTO() {
+        return UniversityGroupResponseDTO
+                .builder()
+                .id(ID)
+                .name("343(3)")
+                .specialityName(SpecialityStub.getRandomSpeciality().getName())
                 .build();
     }
 }

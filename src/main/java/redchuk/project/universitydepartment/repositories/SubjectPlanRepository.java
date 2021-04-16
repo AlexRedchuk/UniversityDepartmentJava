@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface SubjectPlanRepository extends JpaRepository<SubjectPlan, Long> {
-    List<SubjectPlan> getSubjectPlansByYearAndGroup_Id(int year, Long groupId);
+    List<SubjectPlan> getSubjectPlansByYearAndUniversityGroup_Id(Integer year, Long groupId);
 }

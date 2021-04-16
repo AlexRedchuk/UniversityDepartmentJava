@@ -1,9 +1,7 @@
 package redchuk.project.universitydepartment.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -14,17 +12,21 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class SubjectPlan {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @SequenceGenerator(name= "VOCABULARY_SEQUENCE", sequenceName = "VOCABULARY_SEQUENCE_ID", initialValue=1, allocationSize = 1)
+//    @GeneratedValue(strategy=GenerationType.AUTO, generator="VOCABULARY_SEQUENCE")
     private Long id;
-    private int year;
-    @ManyToOne
-    @JoinColumn(name = "group_id")
-    private UniversityGroup group;
+    private Integer year;
     private String type;
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.PERSIST)
+    @JoinColumn(name = "group_id")
+    @EqualsAndHashCode.Exclude
+    private UniversityGroup universityGroup;
+    @ManyToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.PERSIST)
     @JoinColumn(name = "tutor_id")
+    @EqualsAndHashCode.Exclude
     private Tutor tutor;
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER, optional=true, cascade=CascadeType.PERSIST)
     @JoinColumn(name = "subject_id")
+    @EqualsAndHashCode.Exclude
     private Subject subject;
 }

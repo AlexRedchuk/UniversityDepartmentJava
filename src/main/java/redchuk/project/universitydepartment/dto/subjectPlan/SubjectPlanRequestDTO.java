@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SubjectPlanRequestDTO {
     private Long id;
-    private int year;
-    private Long groupId;
+    private Integer year;
+    private Long universityGroupId;
     private String type;
     private Long tutorId;
-    private Long SubjectId;
+    private Long subjectId;
 }

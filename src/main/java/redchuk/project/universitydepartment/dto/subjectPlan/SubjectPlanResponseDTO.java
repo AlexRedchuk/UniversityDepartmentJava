@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SubjectPlanResponseDTO {
     private Long id;
-    private int year;
-    private String groupName;
+    private Integer year;
+    private String universityGroupName;
     private String type;
     private String tutorFullName;
     private String subjectName;

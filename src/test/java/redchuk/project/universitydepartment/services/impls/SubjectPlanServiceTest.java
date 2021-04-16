@@ -50,7 +50,7 @@ class SubjectPlanServiceTest {
 
         assertAll(
                 ()-> assertEquals(res.getId(), subjectPlan.getId()),
-                ()-> assertEquals(res.getGroupName(), subjectPlan.getGroup().getName()),
+                ()-> assertEquals(res.getUniversityGroupName(), subjectPlan.getUniversityGroup().getName()),
                 ()-> assertEquals(res.getTutorFullName(), subjectPlan.getTutor().getFullName()),
                 ()-> assertEquals(res.getType(), subjectPlan.getType()),
                 ()-> assertEquals(res.getYear(), subjectPlan.getYear())
@@ -107,7 +107,7 @@ class SubjectPlanServiceTest {
     void testSucessfulGetSubjectPlansByYearAndGroup() {
         var subjectPlan = List.of(SubjectPlanStub.getRandomSubjectPlan());
 
-        when(repo.getSubjectPlansByYearAndGroup_Id(2020, 1L)).thenReturn(subjectPlan);
+        when(repo.getSubjectPlansByYearAndUniversityGroup_Id(2020, 1L)).thenReturn(subjectPlan);
 
         var res = service.getSubjectPlansByYearAndGroup_Id(2020,
                 1L);

@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class TutorResponseDTO {
     private Long id;
-    private int tabNumber;
+    private Integer tabNumber;
     private String fullName;
     private Date dateOfBirth;
     private String degree;

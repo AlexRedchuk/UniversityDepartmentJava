@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 public class SubjectSummaryRequestDTO {
     private Long id;
     private Long studentId;
-    private int mark;
+    private Integer mark;
     private Long subjectId;
     private Long tutorId;
-    private int semester;
-    private int year;
+    private Integer semester;
+    private Integer year;
 }

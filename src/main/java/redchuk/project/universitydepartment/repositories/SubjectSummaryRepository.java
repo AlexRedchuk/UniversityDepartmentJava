@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface SubjectSummaryRepository extends JpaRepository<SubjectSummary, Long> {
-    List<SubjectSummary> getSubjectSummariesByStudent_IdAndYearAndSemester(Long studentId, int semester, int year);
+    List<SubjectSummary> getSubjectSummariesByStudent_IdAndYearAndSemester(Long studentId, Integer semester, Integer year);
 }

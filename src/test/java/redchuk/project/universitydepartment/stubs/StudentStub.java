@@ -1,6 +1,7 @@
 package redchuk.project.universitydepartment.stubs;
 
 import redchuk.project.universitydepartment.dto.student.StudentRequestDTO;
+import redchuk.project.universitydepartment.dto.student.StudentResponseDTO;
 import redchuk.project.universitydepartment.entity.Student;
 
 public final class StudentStub {
@@ -10,7 +11,7 @@ public final class StudentStub {
                 .builder()
                 .id(ID)
                 .fullName("Alexander Redchuk")
-                .group(GroupStub.getRandomGroup())
+                .universityGroup(GroupStub.getRandomGroup())
                 .build();
     }
 
@@ -19,7 +20,16 @@ public final class StudentStub {
                 .builder()
                 .id(ID)
                 .fullName("Alexander Redchuk")
-                .groupId(GroupStub.getRandomGroup().getId())
+                .universityGroupId(GroupStub.getRandomGroup().getId())
+                .build();
+    }
+
+    public static StudentResponseDTO getStudentResponseDTO() {
+        return StudentResponseDTO
+                .builder()
+                .id(ID)
+                .fullName("Alexander Redchuk")
+                .universityGroupName(GroupStub.getRandomGroup().getName())
                 .build();
     }
 }
