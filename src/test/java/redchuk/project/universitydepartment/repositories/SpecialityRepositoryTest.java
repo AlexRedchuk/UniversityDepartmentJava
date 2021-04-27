@@ -42,7 +42,7 @@ class SpecialityRepositoryTest {
 
     @Test
     void testFindSubjectByCodeNotSuccess() {
-        var expectedObject = SubjectStub.getRandomSubject();
+        var expectedObject = SpecialityStub.getRandomSpeciality();
         entityManager.persist(expectedObject);
         entityManager.flush();
 

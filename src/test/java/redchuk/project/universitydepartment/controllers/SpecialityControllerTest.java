@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -44,7 +45,7 @@ class SpecialityControllerTest {
 
     // CREATE
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_save_in_speciality() throws Exception {
         var request = SpecialityStub.getSpecialityRequestDTO();
         var expectedObject = SpecialityStub.getRandomSpeciality();
@@ -57,7 +58,7 @@ class SpecialityControllerTest {
 
     // GET BY ID
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_id_admin_speciality() throws Exception {
         var expectedObject = SpecialityStub.getSpecialityResponseDTO();
         var object = SpecialityStub.getRandomSpeciality();
@@ -70,7 +71,7 @@ class SpecialityControllerTest {
 
     // GET ALL
     @Test
-    // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_all_admin_speciality() throws Exception {
         var expectedObject = SpecialityStub.getSpecialityResponseDTO();
         var object = SpecialityStub.getRandomSpeciality();
@@ -83,7 +84,7 @@ class SpecialityControllerTest {
 
     // EDIT
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_update_by_id_speciality() throws Exception {
         var request = SpecialityStub.getSpecialityRequestDTO();
         var expectedObject = SpecialityStub.getRandomSpeciality();
@@ -98,7 +99,7 @@ class SpecialityControllerTest {
 
     // CUSTOM
     @Test
-    // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_code_admin_speciality() throws Exception {
         var expectedObject = SpecialityStub.getSpecialityResponseDTO();
         var object = SpecialityStub.getRandomSpeciality();
@@ -113,7 +114,7 @@ class SpecialityControllerTest {
 
 
     @Test
-        //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_deleted_by_id_speciality() throws Exception {
         mockMvc.perform(deleteRequest("/v1/specialities/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk());

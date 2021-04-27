@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -60,7 +61,7 @@ class SubjectPlanControllerTest {
 
     // CREATE
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_save_in_subjectPlan() throws Exception {
         var request = SubjectPlanStub.getSubjectPlanRequestDTO();
         var expectedObject = SubjectPlanStub.getRandomSubjectPlan();
@@ -85,7 +86,7 @@ class SubjectPlanControllerTest {
 
     // GET BY ID
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_id_admin_subjectPlan() throws Exception {
         var expectedObject = SubjectPlanStub.getSubjectPlanResponseDTO();
         var object = SubjectPlanStub.getRandomSubjectPlan();
@@ -104,7 +105,7 @@ class SubjectPlanControllerTest {
 
     // GET ALL
     @Test
-    // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_all_admin_subjectPlan() throws Exception {
         var expectedObject = SubjectPlanStub.getSubjectPlanResponseDTO();
         var object = SubjectPlanStub.getRandomSubjectPlan();
@@ -123,7 +124,7 @@ class SubjectPlanControllerTest {
 
     // EDIT
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_update_by_id_subjectPlan() throws Exception {
         var request = SubjectPlanStub.getSubjectPlanRequestDTO();
         var expectedObject = SubjectPlanStub.getRandomSubjectPlan();
@@ -150,7 +151,7 @@ class SubjectPlanControllerTest {
 
     // CUSTOM
     @Test
-    // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_ByYearAndGroup_admin_subjectPlan() throws Exception {
         var expectedObject = SubjectPlanStub.getSubjectPlanResponseDTO();
         var object = SubjectPlanStub.getRandomSubjectPlan();
@@ -172,7 +173,7 @@ class SubjectPlanControllerTest {
 
 
     @Test
-        //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_deleted_by_id_subjectPlan() throws Exception {
         mockMvc.perform(deleteRequest("/v1/subjectplans/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk());

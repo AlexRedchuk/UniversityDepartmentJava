@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -46,7 +47,7 @@ class TutorControllerTest {
 
     // CREATE
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_save_in_tutor() throws Exception {
         var request = TutorStub.getTutorRequestDTO();
         var expectedObject = TutorStub.getRandomTutor();
@@ -59,7 +60,7 @@ class TutorControllerTest {
 
     // GET BY ID
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_id_admin_tutor() throws Exception {
         var expectedObject = TutorStub.getTutorResponseDTO();
         var object = TutorStub.getRandomTutor();
@@ -72,7 +73,7 @@ class TutorControllerTest {
 
     // GET ALL
     @Test
-    // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_all_admin_tutor() throws Exception {
         var expectedObject = TutorStub.getTutorResponseDTO();
         var object = TutorStub.getRandomTutor();
@@ -85,7 +86,7 @@ class TutorControllerTest {
 
     // EDIT
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_update_by_id_tutor() throws Exception {
         var request = TutorStub.getTutorRequestDTO();
         var expectedObject = TutorStub.getRandomTutor();
@@ -100,7 +101,7 @@ class TutorControllerTest {
 
     // CUSTOM
     @Test
-    // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_position_admin_tutor() throws Exception {
         var expectedObject = TutorStub.getTutorResponseDTO();
         var object = TutorStub.getRandomTutor();
@@ -115,7 +116,7 @@ class TutorControllerTest {
 
 
     @Test
-        //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_deleted_by_id_tutor() throws Exception {
         mockMvc.perform(deleteRequest("/v1/tutors/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk());

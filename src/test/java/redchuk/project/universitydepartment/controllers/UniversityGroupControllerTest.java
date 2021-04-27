@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -48,7 +49,7 @@ class UniversityGroupControllerTest {
 
     // CREATE
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_save_in_group() throws Exception {
         var request = GroupStub.getGroupRequestDTO();
         var expectedObject = GroupStub.getRandomGroup();
@@ -65,7 +66,7 @@ class UniversityGroupControllerTest {
 
     // GET BY ID
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_id_admin_group() throws Exception {
         var expectedObject = GroupStub.getGroupResponseDTO();
         var object = GroupStub.getRandomGroup();
@@ -80,7 +81,7 @@ class UniversityGroupControllerTest {
 
     // GET ALL
     @Test
-   // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_all_admin_group() throws Exception {
         var expectedObject = GroupStub.getGroupResponseDTO();
         var object = GroupStub.getRandomGroup();
@@ -95,7 +96,7 @@ class UniversityGroupControllerTest {
 
     // EDIT
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_update_by_id_group() throws Exception {
         var request = GroupStub.getGroupRequestDTO();
         var expectedObject = GroupStub.getRandomGroup();
@@ -114,7 +115,7 @@ class UniversityGroupControllerTest {
 
     // CUSTOM
     @Test
-    // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_name_admin_group() throws Exception {
         var expectedObject = GroupStub.getGroupResponseDTO();
         var object = GroupStub.getRandomGroup();
@@ -131,7 +132,7 @@ class UniversityGroupControllerTest {
 
 
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_deleted_by_id_group() throws Exception {
         mockMvc.perform(deleteRequest("/v1/groups/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk());

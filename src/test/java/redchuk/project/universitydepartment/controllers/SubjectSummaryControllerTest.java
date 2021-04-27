@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -58,7 +59,7 @@ class SubjectSummaryControllerTest {
 
     // CREATE
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_save_in_subjectSummary() throws Exception {
         var request = SubjectSummaryStub.getSubjectSummaryRequestDTO();
         var expectedObject = SubjectSummaryStub.getRandomSubjectSummary();
@@ -83,7 +84,7 @@ class SubjectSummaryControllerTest {
 
     // GET BY ID
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_id_admin_subjectSummary() throws Exception {
         var expectedObject = SubjectSummaryStub.getSubjectSummaryResponseDTO();
         var object = SubjectSummaryStub.getRandomSubjectSummary();
@@ -102,7 +103,7 @@ class SubjectSummaryControllerTest {
 
     // GET ALL
     @Test
-    // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_all_admin_subjectSummary() throws Exception {
         var expectedObject = SubjectSummaryStub.getSubjectSummaryResponseDTO();
         var object = SubjectSummaryStub.getRandomSubjectSummary();
@@ -121,7 +122,7 @@ class SubjectSummaryControllerTest {
 
     // EDIT
     @Test
-    //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_update_by_id_subjectSummary() throws Exception {
         var request = SubjectSummaryStub.getSubjectSummaryRequestDTO();
         var expectedObject = SubjectSummaryStub.getRandomSubjectSummary();
@@ -148,7 +149,7 @@ class SubjectSummaryControllerTest {
 
     // CUSTOM
     @Test
-    // @WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_get_by_ByStudent_IdAndYearAndSemester_admin_subjectSummary() throws Exception {
         var expectedObject = SubjectSummaryStub.getSubjectSummaryResponseDTO();
         var object = SubjectSummaryStub.getRandomSubjectSummary();
@@ -171,7 +172,7 @@ class SubjectSummaryControllerTest {
 
 
     @Test
-        //@WithMockUser(roles = "ADMIN")
+    @WithMockUser(roles = "ADMIN")
     void should_successfully_deleted_by_id_subjectSummary() throws Exception {
         mockMvc.perform(deleteRequest("/v1/subjectsummaries/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
